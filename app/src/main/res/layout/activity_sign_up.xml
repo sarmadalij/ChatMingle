@@ -22,15 +22,15 @@
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="50dp"
             android:contentDescription="@string/todo"
             app:srcCompat="@drawable/chatmingle"
             tools:ignore="ImageContrastCheck" />
 
         <EditText
-            android:id="@+id/textUsername"
+            android:id="@+id/textUsernameSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bgfortextfields"
             android:ems="10"
@@ -42,7 +42,7 @@
             tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
-            android:id="@+id/textEmailsignin"
+            android:id="@+id/textEmailsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -56,7 +56,7 @@
             tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <EditText
-            android:id="@+id/textPasswordsignin"
+            android:id="@+id/textPasswordsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bgfortextfields"
@@ -81,7 +81,7 @@
             tools:ignore="RtlHardcoded" />
 
         <Button
-            android:id="@+id/buttonSignIn"
+            android:id="@+id/buttonSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -98,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal">
 

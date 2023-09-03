@@ -18,8 +18,8 @@ public class SignInActivity extends AppCompatActivity {
         signInBinding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(signInBinding.getRoot());
 
-        //sign in to sign up
-        signInBinding.DonthaveAccountSignin.setOnClickListener(new View.OnClickListener() {
+        //on change in activity signin to signup
+        signInBinding.DonthaveAccountSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);

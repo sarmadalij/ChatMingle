@@ -22,6 +22,7 @@
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="65dp"
             android:contentDescription="@string/todo"
             app:srcCompat="@drawable/chatmingle"
             tools:ignore="ImageContrastCheck" />
@@ -30,7 +31,6 @@
             android:id="@+id/textEmailsignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bgfortextfields"
             android:ems="10"
@@ -55,7 +55,7 @@
             tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
-            android:id="@+id/DonthaveAccountSignin"
+            android:id="@+id/DonthaveAccountSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="80dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal">
 

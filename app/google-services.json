@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157917381479",
+    "project_id": "chatmingle-c362d",
+    "storage_bucket": "chatmingle-c362d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157917381479:android:2be9c986f6f5d941d3e5c2",
+        "android_client_info": {
+          "package_name": "com.sarmadali.chatmingle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157917381479-3tbsh84qos9asoucc6v33er7a73l13nl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCODTenWDFnApRT4EcK9ZW4hsOkONiDliA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157917381479-3tbsh84qos9asoucc6v33er7a73l13nl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
