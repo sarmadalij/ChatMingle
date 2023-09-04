@@ -38,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -66,6 +67,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
 
                                 if(task.isSuccessful()){
+
+                                    Intent intent = new Intent(SignUpActivity.this,
+                                            SignInActivity.class);
+                                    startActivity(intent);
+                                    finish();
+
                                     //using Users constructor for signup
                                     Users users = new Users(
                                             signUpBinding.textUsernameSignUp.getText().toString(),
@@ -80,7 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     String id = task.getResult().getUser().getUid();
                                     //setting values in realtime database
                                     firebaseDatabase.getReference().child("Users").
-                                            //we can use id and username or anyother string as we
+                                            //we can use id and username or another string as we
                                             // want in the below child to name the user node.
                                             child(signUpBinding.textUsernameSignUp.getText().toString())
                                             .setValue(users);
@@ -88,8 +95,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                                     Toast.makeText(SignUpActivity.this, "User Created Successfully ",
                                             Toast.LENGTH_SHORT).show();
+
+
                                 } else {
-                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(),
+                                    Toast.makeText(SignUpActivity.this, "Error: "+task.getException()
+                                                    .getMessage(),
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }

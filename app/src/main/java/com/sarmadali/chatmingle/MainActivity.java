@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.sarmadali.chatmingle.databinding.ActivityMainBinding;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //3 vertical dots in toolbar color change
-        toolbar.getOverflowIcon().setColorFilter(Color.WHITE , PorterDuff.Mode.SRC_ATOP);
+        Objects.requireNonNull(toolbar.getOverflowIcon()).setColorFilter(Color.WHITE , PorterDuff.Mode.SRC_ATOP);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -62,9 +64,10 @@ public class MainActivity extends AppCompatActivity {
         //for Sign out
         else if (itemId == R.id.logout) {
 
-            firebaseAuth.signOut();
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
+            finish();
         }
         return true;
     }
