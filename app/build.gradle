@@ -50,5 +50,11 @@ dependencies {
 
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+    //for circular image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //for image picker
+    implementation 'com.squareup.picasso:picasso:2.8'
 }
 apply plugin: 'com.google.gms.google-services'

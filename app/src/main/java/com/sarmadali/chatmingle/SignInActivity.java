@@ -65,6 +65,7 @@ public class SignInActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
@@ -166,6 +167,7 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             //sign in success, update UI with the signed-in user's infromation
                             Log.d("TAG","signInWithCredential:success");
+
                             FirebaseUser user = firebaseAuth.getCurrentUser();
 
                             Users users = new Users();

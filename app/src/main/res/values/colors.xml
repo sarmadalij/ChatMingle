@@ -9,11 +9,13 @@
 
 <!--    chatmingle icon colors-->
     <color name="innerbody">#4B4DFF</color>
-    <color name="arrowbody">#4343BF</color>
+    <color name="arrowbody">#283963</color>
     <color name="roundborderlayer">#3ABCF8</color>
     <color name="phoneicon">#EDF7F5</color>
     <color name="squarebgcolor">#5C7CFA</color>
     <color name="logobg">#D3D3D3</color>
+
+    <color name="chatsfragmentBg">#0D2035</color>
 
 
 </resources>

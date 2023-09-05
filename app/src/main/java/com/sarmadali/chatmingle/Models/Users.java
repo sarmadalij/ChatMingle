@@ -60,7 +60,7 @@ public class Users {
         this.passWord = passWord;
     }
 
-    public String getUserId() {
+    public String getUserId(String key) {
         return userId;
     }
 

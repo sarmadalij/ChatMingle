@@ -3,6 +3,7 @@ package com.sarmadali.chatmingle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,7 +16,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
+import com.sarmadali.chatmingle.Adapters.FragmentsAdapter;
 import com.sarmadali.chatmingle.databinding.ActivityMainBinding;
 
 import java.util.Objects;
@@ -24,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
     FirebaseAuth firebaseAuth;
+
+    TabLayout tabLayout;
+    ViewPager2 viewPager2;
+
+    String namesOftabLayout [] = {"Chats","Status","Calls"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,24 @@ public class MainActivity extends AppCompatActivity {
                 PorterDuff.Mode.SRC_ATOP);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+
+        //find id
+        viewPager2 = findViewById(R.id.viewPagermain);
+
+        FragmentsAdapter fragmentsAdapter = new FragmentsAdapter(getSupportFragmentManager(), getLifecycle());
+        viewPager2.setAdapter(fragmentsAdapter);
+
+        tabLayout = findViewById(R.id.tablayoutMain);
+//        tabLayout.setupWithViewPager(viewPager2);
+
+        // to connect the tabLayout and viewPager2
+        //and also, it sets the title of the tabLayout
+        new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
+            tab.setText(namesOftabLayout[position]);
+        }).attach();
+
+
     }
 
     //to inflate the menu && toolbar
