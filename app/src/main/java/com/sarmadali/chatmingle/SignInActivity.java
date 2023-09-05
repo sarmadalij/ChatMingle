@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -34,8 +33,6 @@ public class SignInActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     FirebaseAuth firebaseAuth;
-
-    BeginSignInRequest signInRequest;
     GoogleSignInClient googleSignInClient;
     FirebaseDatabase firebaseDatabase;
 
@@ -112,12 +109,18 @@ public class SignInActivity extends AppCompatActivity {
         });
 
         // if user is already login then start with mainActivity
-        if (firebaseAuth.getCurrentUser()!=null){
+        if (firebaseAuth.getCurrentUser()!= null){
+
             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
 
+//        try {
+//            Log.d("CurrentUser","CurrentUser Sign Activity: "+ firebaseAuth.getCurrentUser().getUid());
+//        }catch (Exception e){
+//            Log.d("CurrentUser","Failed Sign Activity: "+e);
+//        }
 
     }
 
@@ -171,7 +174,8 @@ public class SignInActivity extends AppCompatActivity {
                             users.setProfilePic(user.getPhotoUrl().toString());
 
                             // to set the data on realtime database
-                            firebaseDatabase.getReference().child("Users").child(user.getUid()).setValue(users);
+                            firebaseDatabase.getReference().child("Users").child(user.getUid())
+                                    .setValue(users);
 
 
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);

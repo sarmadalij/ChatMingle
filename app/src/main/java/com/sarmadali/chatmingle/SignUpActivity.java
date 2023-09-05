@@ -21,13 +21,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     ActivitySignUpBinding signUpBinding;
 
-    private FirebaseAuth auth;
+    FirebaseAuth auth;
     FirebaseDatabase firebaseDatabase;
 
     ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         signUpBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(signUpBinding.getRoot());
@@ -58,52 +59,53 @@ public class SignUpActivity extends AppCompatActivity {
                 progressDialog.show();
 
                 auth.createUserWithEmailAndPassword(
-                        signUpBinding.textEmailsignup.getText().toString(),
-                        signUpBinding.textPasswordsignup.getText().toString())
+                                signUpBinding.textEmailsignup.getText().toString(),
+                                signUpBinding.textPasswordsignup.getText().toString())
                         .addOnCompleteListener(
-                        new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressDialog.dismiss();
+                                new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        progressDialog.dismiss();
 
-                                if(task.isSuccessful()){
+                                        if (task.isSuccessful()) {
 
-                                    Intent intent = new Intent(SignUpActivity.this,
-                                            SignInActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                            //using Users constructor for signup
+                                            Users users = new Users(
+                                                    signUpBinding.textUsernameSignUp.getText().toString(),
+                                                    signUpBinding.textEmailsignup.getText().toString(),
+                                                    signUpBinding.textPasswordsignup.getText().toString()
+                                            );
 
-                                    //using Users constructor for signup
-                                    Users users = new Users(
-                                            signUpBinding.textUsernameSignUp.getText().toString(),
-                                            signUpBinding.textEmailsignup.getText().toString(),
-                                            signUpBinding.textPasswordsignup.getText().toString()
-                                    );
+                                            //* !to remember --> always check rules in firebase realtime database
+                                            //  to retrieve and store data.
 
-                                    //* !to remember --> always check rules in firebase realtime database
-                                    //  to retrieve and store data.
-
-                                    //to get the UID of user from AuthResult
-                                    String id = task.getResult().getUser().getUid();
-                                    //setting values in realtime database
-                                    firebaseDatabase.getReference().child("Users").
-                                            //we can use id and username or another string as we
-                                            // want in the below child to name the user node.
-                                            child(signUpBinding.textUsernameSignUp.getText().toString())
-                                            .setValue(users);
+                                            //to get the UID of user from AuthResult
+                                            String id = task.getResult().getUser().getUid();
+                                            //setting values in realtime database
+                                            firebaseDatabase.getReference().child("Users")
+                                                    //we can use id and username or another string as we
+                                                    // want in the below child to name the user node.
+                                                    .child(signUpBinding.textUsernameSignUp.getText().toString())
+                                                    .setValue(users);
 
 
-                                    Toast.makeText(SignUpActivity.this, "User Created Successfully ",
-                                            Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignUpActivity.this, "User Created Successfully",
+                                                    Toast.LENGTH_SHORT).show();
+
+                                            Intent intent = new Intent(SignUpActivity.this,
+                                                    SignInActivity.class);
+                                            startActivity(intent);
+                                            finish();
 
 
-                                } else {
-                                    Toast.makeText(SignUpActivity.this, "Error: "+task.getException()
-                                                    .getMessage(),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                                        } else {
+                                            Toast.makeText(SignUpActivity.this, "Error: " +
+                                                            task.getException().getMessage(),
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                });
 
 
             }

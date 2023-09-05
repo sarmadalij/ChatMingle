@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.sarmadali.chatmingle.databinding.ActivityMainBinding;
 
@@ -33,11 +35,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //3 vertical dots in toolbar color change
-        Objects.requireNonNull(toolbar.getOverflowIcon()).setColorFilter(Color.WHITE , PorterDuff.Mode.SRC_ATOP);
+        Objects.requireNonNull(toolbar.getOverflowIcon()).setColorFilter(Color.WHITE ,
+                PorterDuff.Mode.SRC_ATOP);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
-
     }
 
     //to inflate the menu && toolbar
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         //for Sign out
         else if (itemId == R.id.logout) {
 
-            FirebaseAuth.getInstance().signOut();
+            firebaseAuth.signOut();
             Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
