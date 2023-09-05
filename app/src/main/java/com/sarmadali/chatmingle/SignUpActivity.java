@@ -92,6 +92,9 @@ public class SignUpActivity extends AppCompatActivity {
                                             Toast.makeText(SignUpActivity.this, "User Created Successfully",
                                                     Toast.LENGTH_SHORT).show();
 
+                                            //signout user after signup so it cannot go to mainactivity
+                                            //directly
+                                            auth.signOut();
                                             Intent intent = new Intent(SignUpActivity.this,
                                                     SignInActivity.class);
                                             startActivity(intent);
