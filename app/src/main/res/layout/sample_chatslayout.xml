@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="65dp"
     android:layout_marginTop="2dp"
     android:orientation="horizontal"
     tools:ignore="TextSizeCheck">
@@ -19,9 +19,9 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profilepic"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:id="@+id/profilepicChatting"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:scaleType="centerCrop"
@@ -71,7 +71,7 @@
                     android:id="@+id/textLastMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="top|center_vertical"
                     android:text="@string/hi_how_are_you"

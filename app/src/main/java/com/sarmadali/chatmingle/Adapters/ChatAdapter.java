@@ -71,7 +71,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            profileImage = itemView.findViewById(R.id.profilepic);
+            profileImage = itemView.findViewById(R.id.profilepicChatting);
             userName = itemView.findViewById(R.id.textUserName);
             lastMessage = itemView.findViewById(R.id.textLastMessage);
             timeText = itemView.findViewById(R.id.textTime);

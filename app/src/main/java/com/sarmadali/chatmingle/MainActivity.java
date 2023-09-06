@@ -9,13 +9,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
@@ -86,8 +84,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (itemId == R.id.newgroup) {
             Toast.makeText(this, "This is New Group", Toast.LENGTH_SHORT).show();
+
         } else if (itemId == R.id.newbroadcast) {
-            Toast.makeText(this, "This is New Broadcast", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This is New newbroadcast", Toast.LENGTH_SHORT).show();
+
+        } else if (itemId == R.id.linkeddevices) {
+            Toast.makeText(this, "This is New linkeddevices", Toast.LENGTH_SHORT).show();
+
+        } else if (itemId == R.id.starredmessages) {
+            Toast.makeText(this, "This is New starredmessages", Toast.LENGTH_SHORT).show();
+
+        } else if (itemId == R.id.settings) {
+            Toast.makeText(this, "This is New settings", Toast.LENGTH_SHORT).show();
+
         }
         //for Sign out
         else if (itemId == R.id.logout) {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChattingActivity">
+
+    <include
+        layout="@layout/toolbarchatting"
+        android:id="@+id/toolbarchatting"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/chattingLinearlayout"
+        android:layout_below="@+id/toolbarchatting"
+        android:background="@color/squarebgcolor" />
+
+    <LinearLayout
+        android:id="@+id/chattingLinearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/chatsfragmentBg"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/chattingtypemessagebg"
+            android:ems="10"
+            android:hint="@string/type_your_message"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/chatsfragmentBg"
+            android:textColorHint="@color/silver"
+            tools:ignore="Autofill,InefficientWeight,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/todo2"
+            android:rotation="40"
+            android:scaleType="centerInside"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/sendmessage"
+            tools:ignore="UseAppTint" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

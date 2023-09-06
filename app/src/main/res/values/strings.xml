@@ -26,4 +26,13 @@
     <string name="user_name">User Name</string>
     <string name="_5_30_pm">5:30 PM</string>
     <string name="hi_how_are_you">Last Message</string>
+    <string name="todo1">TODO</string>
+    <string name="user_name1">User Name</string>
+    <string name="view_contact">View contact</string>
+    <string name="report">Report</string>
+    <string name="block">Block</string>
+    <string name="search">Search</string>
+    <string name="mute_notifications">Mute Notifications</string>
+    <string name="type_your_message">Type your message</string>
+    <string name="todo2">TODO</string>
 </resources>
