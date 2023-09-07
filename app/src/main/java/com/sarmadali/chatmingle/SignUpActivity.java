@@ -85,7 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
                                             firebaseDatabase.getReference().child("Users")
                                                     //we can use id and username or another string as we
                                                     // want in the below child to name the user node.
-                                                    .child(signUpBinding.textUsernameSignUp.getText().toString())
+                                                    .child(id)
                                                     .setValue(users);
 
 
