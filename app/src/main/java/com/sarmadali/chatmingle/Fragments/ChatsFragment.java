@@ -78,6 +78,7 @@ public class ChatsFragment extends Fragment {
                     String childKey = dataSnapshot.getKey();
 //                    String childValue = dataSnapshot.getValue().toString();
 //                    Log.w("Child Key & Child Value","Key: "+childKey+" Value"+childValue);
+
                     //to not add current user in the list
                     if (!currentUserId.equals(childKey)){
                         list.add(users);
