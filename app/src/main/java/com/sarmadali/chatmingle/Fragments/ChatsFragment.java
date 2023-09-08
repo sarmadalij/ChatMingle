@@ -54,6 +54,9 @@ public class ChatsFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        String currentID = user.getUid();
+
         reference = firebaseDatabase.getInstance().getReference().child("Users");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -68,15 +71,15 @@ public class ChatsFragment extends Fragment {
 
                     Users users = dataSnapshot.getValue(Users.class);
 //                    users.getUserId(dataSnapshot.getKey());
+//                    Users users = new Users();
 
-                    Log.d("Current User ID","Current UserID: "+currentUserId);
-
-
-
-
-                        Log.d("User ID","UserID: "+users.getUserId());
+//                    Log.d("Current User ID","Current UserID: "+currentUserId);
+//                    Log.d("User ID","UserID: "+users.getUserId());
+                    String childKey = dataSnapshot.getKey();
+//                    String childValue = dataSnapshot.getValue().toString();
+//                    Log.w("Child Key & Child Value","Key: "+childKey+" Value"+childValue);
                     //to not add current user in the list
-                    if (!currentUserId.equals(users.getUserId())){
+                    if (!currentUserId.equals(childKey)){
                         list.add(users);
                     }
                 }
