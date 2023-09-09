@@ -35,4 +35,8 @@
     <string name="mute_notifications">Mute Notifications</string>
     <string name="type_your_message">Type your message</string>
     <string name="todo2">TODO</string>
+    <string name="message_text">Message text</string>
+    <string name="_10_00_am">10:00 AM</string>
+    <string name="message1">Message</string>
+    <string name="_12_00_am">12:00 AM</string>
 </resources>

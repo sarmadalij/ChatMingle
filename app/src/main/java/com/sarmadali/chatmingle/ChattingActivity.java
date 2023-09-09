@@ -2,21 +2,35 @@ package com.sarmadali.chatmingle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.sarmadali.chatmingle.Adapters.MessageAdapter;
+import com.sarmadali.chatmingle.Models.MessagesModel;
 import com.sarmadali.chatmingle.databinding.ActivityChattingBinding;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ChattingActivity extends AppCompatActivity {
 
@@ -42,7 +56,7 @@ public class ChattingActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         //getting data from the intent
-        String senderId = firebaseAuth.getUid();
+        final String senderId = firebaseAuth.getUid();
         String receiverId = getIntent().getStringExtra("userId");
         String userName = getIntent().getStringExtra("userName");
         String userProfile = getIntent().getStringExtra("userPic");
@@ -64,7 +78,72 @@ public class ChattingActivity extends AppCompatActivity {
             }
         });
 
+        final ArrayList<MessagesModel> messagesModels = new ArrayList<>();
+        final MessageAdapter messageAdapter = new MessageAdapter(messagesModels, this);
 
+        chattingBinding.chatRecyclerView.setAdapter(messageAdapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        chattingBinding.chatRecyclerView.setLayoutManager(layoutManager);
+
+        final String senderRoom = senderId + receiverId;
+        final String receiverRoom = receiverId + senderId;
+
+        //to display messages on recyclerView
+        firebaseDatabase.getReference().child("Chats")
+                .child(senderRoom)
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                //to clear recyclerview so it should not show all
+                                //message when one msg is send
+                                messagesModels.clear();
+
+                                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+                                    //data to be showed
+                                    MessagesModel model = dataSnapshot1.getValue(MessagesModel.class);
+                                    messagesModels.add(model);
+                                }
+                                messageAdapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+        //on send imageView button for messages
+        chattingBinding.sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //save message to database
+                String msg = chattingBinding.writeMessage.getText().toString();
+                final MessagesModel mModel = new MessagesModel(senderId, msg);
+                mModel.setTimeStamp(new Date().getTime());
+
+                chattingBinding.writeMessage.setText("");
+
+                firebaseDatabase.getReference().child("Chats")
+                        .child(senderRoom)
+                        .push()
+                        .setValue(mModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                firebaseDatabase.getReference().child("Chats")
+                                        .child(receiverRoom)
+                                        .push()
+                                        .setValue(mModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+
+                                            }
+                                        });
+                            }
+                        });
+
+            }
+        });
 
     }
 

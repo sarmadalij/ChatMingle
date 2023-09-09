@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_root_layout_chatting"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/chattingLinearlayout"
         android:layout_below="@+id/toolbarchatting"
-        android:background="@color/squarebgcolor" />
+        android:background="@color/darkgray" />
 
     <LinearLayout
         android:id="@+id/chattingLinearlayout"
@@ -30,7 +31,7 @@
 
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/writeMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -45,7 +46,7 @@
             tools:ignore="Autofill,InefficientWeight,VisualLintTextFieldSize,TouchTargetSizeCheck" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/sendMessage"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
