@@ -26,7 +26,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/chatsfragmentBg"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="1dp">
 
 
         <EditText
@@ -39,22 +39,23 @@
             android:ems="10"
             android:hint="@string/type_your_message"
             android:inputType="text"
-            android:padding="10dp"
+            android:padding="8dp"
             android:textColor="@color/chatsfragmentBg"
             android:textColorHint="@color/silver"
             tools:ignore="Autofill,InefficientWeight,VisualLintTextFieldSize,TouchTargetSizeCheck" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
+            android:background="@drawable/sendarrow_bg"
             android:contentDescription="@string/todo2"
-            android:rotation="40"
-            android:scaleType="centerInside"
-            android:tint="@color/white"
-            app:srcCompat="@drawable/sendmessage"
+            android:scaleType="fitXY"
+            android:tint="@color/chatsfragmentBg"
+            app:srcCompat="@drawable/sendmessagearrow"
             tools:ignore="UseAppTint" />
+
 
     </LinearLayout>
 

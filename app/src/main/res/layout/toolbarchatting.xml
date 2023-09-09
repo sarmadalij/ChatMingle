@@ -59,23 +59,23 @@
             tools:ignore="RtlHardcoded" />
 
         <ImageView
-            android:id="@+id/phoneChatting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/videoChatting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginRight="44dp"
             android:contentDescription="@string/todo"
             android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="@id/videoChatting"
+            app:layout_constraintRight_toRightOf="@id/phoneChatting"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
             app:srcCompat="@drawable/videocamera"
             tools:ignore="RtlHardcoded,UseAppTint" />
 
         <ImageView
-            android:id="@+id/videoChatting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/phoneChatting"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginRight="5dp"
             android:contentDescription="@string/todo"
             android:tint="@color/white"

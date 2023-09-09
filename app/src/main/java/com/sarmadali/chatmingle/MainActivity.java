@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
         //find id
         viewPager2 = findViewById(R.id.viewPagermain);
 
@@ -64,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
         }).attach();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.d("MainActivity", "Back pressed in MainActivity");
+        Toast.makeText(this, "Back pressed in MainActivity", Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 
     //to inflate the menu && toolbar

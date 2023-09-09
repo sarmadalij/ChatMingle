@@ -1,6 +1,8 @@
 package com.sarmadali.chatmingle.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sarmadali.chatmingle.ChattingActivity;
 import com.sarmadali.chatmingle.Models.Users;
 import com.sarmadali.chatmingle.R;
 import com.squareup.picasso.Picasso;
@@ -47,6 +50,22 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 //        holder.lastMessage.setText(usersModel.getMsg());
 //        holder.timeText.setText(usersModel.getTime());
 
+        //send data to chatting activity from chats profiles
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, ChattingActivity.class);
+
+                intent.putExtra("userId", usersModel.getUserId());
+                intent.putExtra("userPic", usersModel.getProfilePic());
+                intent.putExtra("userName", usersModel.getUserName());
+
+                context.startActivity(intent);
+                // Finish the current activity
+                ((Activity) context).finish();
+            }
+        });
 
     }
 

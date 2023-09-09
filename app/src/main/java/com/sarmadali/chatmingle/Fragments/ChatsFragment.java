@@ -1,5 +1,6 @@
 package com.sarmadali.chatmingle.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.chatmingle.Adapters.ChatAdapter;
 import com.sarmadali.chatmingle.Models.Users;
 import com.sarmadali.chatmingle.R;
+import com.sarmadali.chatmingle.SignUpActivity;
 import com.sarmadali.chatmingle.databinding.FragmentChatsBinding;
 
 import java.util.ArrayList;
@@ -51,6 +53,7 @@ public class ChatsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         chatsBinding.recyclerViewChat.setLayoutManager(layoutManager);
 
+        //database
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -70,7 +73,7 @@ public class ChatsFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
                     Users users = dataSnapshot.getValue(Users.class);
-//                    users.getUserId(dataSnapshot.getKey());
+                    users.setUserId(dataSnapshot.getKey());
 //                    Users users = new Users();
 
 //                    Log.d("Current User ID","Current UserID: "+currentUserId);
