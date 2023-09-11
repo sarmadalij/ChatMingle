@@ -12,12 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.chatmingle.ChattingActivity;
 import com.sarmadali.chatmingle.Models.Users;
 import com.sarmadali.chatmingle.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
@@ -47,6 +55,46 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         Picasso.get().load(usersModel.getProfilePic()).placeholder(R.drawable.useravatar)
                 .into(holder.profileImage);
         holder.userName.setText(usersModel.getUserName());
+
+        //get last message from the user chat from database
+        //and dispaly on chat lists
+        FirebaseDatabase.getInstance().getReference().child("Chats")
+                .child(FirebaseAuth.getInstance().getUid()+usersModel.getUserId())
+                .orderByChild("timeStamp")
+                .limitToLast(1)
+                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                                if (snapshot.hasChildren()){
+                                                    for (DataSnapshot snapshot1 : snapshot.getChildren()
+                                                         ) {
+                                                        //setting last message
+                                                        holder.lastMessage.setText(snapshot1.child("messageText")
+                                                                .getValue().toString());
+                                                        //setting time
+
+                                                        long timestampInMillis = (long) snapshot1.child("timeStamp").getValue();
+                                                        // Create a SimpleDateFormat instance to format the timestamp
+                                                        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+
+                                                        // Format the timestamp
+                                                        String formattedTime = sdf.format(new Date(timestampInMillis));
+                                                        holder.timeText.setText(formattedTime);
+
+//                                                        holder.timeText.setText(snapshot1.child("timeStamp")
+//                                                                .getValue().toString());
+
+                                                    }
+                                                }
+
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
 //        holder.lastMessage.setText(usersModel.getMsg());
 //        holder.timeText.setText(usersModel.getTime());
 

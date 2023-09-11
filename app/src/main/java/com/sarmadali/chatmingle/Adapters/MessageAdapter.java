@@ -88,7 +88,6 @@ public class MessageAdapter extends RecyclerView.Adapter{
 
             ((ReceiverViewHolder)holder).receiverMsg.setText(mModel.getMessageText());
             //for time
-            // Assuming mModel.getTimeStamp() returns a timestamp in milliseconds
             long timestampInMillis = mModel.getTimeStamp();
             // Create a SimpleDateFormat instance to format the timestamp
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
