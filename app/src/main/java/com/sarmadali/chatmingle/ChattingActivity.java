@@ -5,17 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -84,6 +88,7 @@ public class ChattingActivity extends AppCompatActivity {
         chattingBinding.chatRecyclerView.setAdapter(messageAdapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
         chattingBinding.chatRecyclerView.setLayoutManager(layoutManager);
 
         final String senderRoom = senderId + receiverId;
@@ -106,12 +111,19 @@ public class ChattingActivity extends AppCompatActivity {
                                     messagesModels.add(model);
                                 }
                                 messageAdapter.notifyDataSetChanged();
+
+                                //to scroll recyclerview to the latest message
+                                //when message activity is called
+                                chattingBinding.chatRecyclerView.scrollToPosition(messagesModels.size() - 1);
+
+
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
 
                             }
+
                         });
         //on send imageView button for messages
         chattingBinding.sendMessage.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +157,23 @@ public class ChattingActivity extends AppCompatActivity {
             }
         });
 
+        //to handle the scrolling in message recyclerView
+        chattingBinding.writeMessage.getViewTreeObserver().addOnGlobalLayoutListener
+                (new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect r = new Rect();
+                chattingBinding.writeMessage.getWindowVisibleDisplayFrame(r);
+                int screenHeight = chattingBinding.writeMessage.getRootView().getHeight();
+                int keypadHeight = screenHeight - r.bottom;
+
+                // If keypadHeight is positive, the keyboard is open
+                if (keypadHeight > screenHeight * 0.15) {
+                    // Keyboard is open, Scroll to the latest message
+                    chattingBinding.chatRecyclerView.scrollToPosition(messagesModels.size() - 1);
+                }
+            }
+        });
     }
 
     //to inflate the menu && toolbar

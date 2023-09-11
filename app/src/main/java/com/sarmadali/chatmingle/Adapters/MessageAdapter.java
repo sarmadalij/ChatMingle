@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.sarmadali.chatmingle.Models.MessagesModel;
 import com.sarmadali.chatmingle.R;
+import com.sarmadali.chatmingle.databinding.ActivityChattingBinding;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
