@@ -14,8 +14,7 @@
         android:layout_marginBottom="5dp"
         android:background="@drawable/msg_sender_bg"
         android:maxWidth="300dp"
-        android:maxHeight="400dp"
-        android:minWidth="100dp"
+        android:minWidth="40dp"
         tools:ignore="RtlHardcoded">
 
         <androidx.constraintlayout.widget.Guideline
@@ -29,13 +28,13 @@
             android:id="@+id/senderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="3dp"
             android:inputType="textMultiLine|textLongMessage"
             android:maxWidth="260dp"
-            android:minWidth="50dp"
+            android:minWidth="40dp"
             android:text="@string/message1"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/senderTime"

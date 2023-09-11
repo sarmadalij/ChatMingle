@@ -3,6 +3,7 @@ package com.sarmadali.chatmingle.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,8 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                                         .addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                //color for text
+                                                int customColor = Color.argb(255, 0, 255, 0);
 
                                                 if (snapshot.hasChildren()){
                                                     for (DataSnapshot snapshot1 : snapshot.getChildren()
@@ -72,8 +75,9 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                                                         //setting last message
                                                         holder.lastMessage.setText(snapshot1.child("messageText")
                                                                 .getValue().toString());
-                                                        //setting time
+                                                        holder.lastMessage.setTextColor(customColor);
 
+                                                        //setting time
                                                         long timestampInMillis = (long) snapshot1.child("timeStamp").getValue();
                                                         // Create a SimpleDateFormat instance to format the timestamp
                                                         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
@@ -81,9 +85,6 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                                                         // Format the timestamp
                                                         String formattedTime = sdf.format(new Date(timestampInMillis));
                                                         holder.timeText.setText(formattedTime);
-
-//                                                        holder.timeText.setText(snapshot1.child("timeStamp")
-//                                                                .getValue().toString());
 
                                                     }
                                                 }
