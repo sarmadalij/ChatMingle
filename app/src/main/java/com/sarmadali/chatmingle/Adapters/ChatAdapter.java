@@ -86,6 +86,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                                                         String formattedTime = sdf.format(new Date(timestampInMillis));
                                                         holder.timeText.setText(formattedTime);
 
+
                                                     }
                                                 }
 
