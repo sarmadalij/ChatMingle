@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Log.d("MainActivity", "Back pressed in MainActivity");
-        Toast.makeText(this, "Back pressed in MainActivity", Toast.LENGTH_SHORT).show();
-
         finish();
     }
 

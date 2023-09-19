@@ -2,7 +2,7 @@ package com.sarmadali.chatmingle.Models;
 
 public class MessagesModel {
 
-    String messageUserId, messageText;
+    String messageUserId, messageText, msgId;
     Long timeStamp;
 
     public MessagesModel(String messageUserId, String messageText, Long timeStamp) {
@@ -21,6 +21,15 @@ public class MessagesModel {
     }
 
     //setter and getter
+
+    public String getMsgId() {
+        return msgId;
+    }
+
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
+    }
+
     public String getMessageUserId() {
         return messageUserId;
     }

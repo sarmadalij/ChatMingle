@@ -77,7 +77,7 @@ public class ChattingActivity extends AppCompatActivity {
         });
 
         final ArrayList<MessagesModel> messagesModels = new ArrayList<>();
-        final MessageAdapter messageAdapter = new MessageAdapter(messagesModels, this);
+        final MessageAdapter messageAdapter = new MessageAdapter(messagesModels, this, receiverId);
 
         chattingBinding.chatRecyclerView.setAdapter(messageAdapter);
 
@@ -102,6 +102,8 @@ public class ChattingActivity extends AppCompatActivity {
                                 for (DataSnapshot dataSnapshot1 : snapshot.getChildren()){
                                     //data to be showed
                                     MessagesModel model = dataSnapshot1.getValue(MessagesModel.class);
+                                    model.setMsgId(dataSnapshot1.getKey());
+
                                     messagesModels.add(model);
                                 }
                                 messageAdapter.notifyDataSetChanged();
@@ -202,8 +204,6 @@ public class ChattingActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Log.d("ChattingActivity", "Back pressed in ChattingActivity");
-        Toast.makeText(this, "Back pressed in ChattingActivity", Toast.LENGTH_SHORT).show();
-
         Intent intent = new Intent(ChattingActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

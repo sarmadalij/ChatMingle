@@ -67,6 +67,8 @@ public class SettingsActivity extends AppCompatActivity {
 
                 database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .updateChildren(object);
+
+                Toast.makeText(SettingsActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -84,7 +86,6 @@ public class SettingsActivity extends AppCompatActivity {
                         settingsBinding.settingUserabout.setText(users.getAbout());
                         settingsBinding.settingUsername.setText(users.getUserName());
 
-                        Toast.makeText(SettingsActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
