@@ -1,17 +1,13 @@
 package com.sarmadali.chatmingle.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,8 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.chatmingle.Adapters.ChatAdapter;
 import com.sarmadali.chatmingle.Models.Users;
-import com.sarmadali.chatmingle.R;
-import com.sarmadali.chatmingle.SignUpActivity;
 import com.sarmadali.chatmingle.databinding.FragmentChatsBinding;
 
 import java.util.ArrayList;
@@ -74,6 +68,8 @@ public class ChatsFragment extends Fragment {
 
                     Users users = dataSnapshot.getValue(Users.class);
                     users.setUserId(dataSnapshot.getKey());
+
+
 //                    Users users = new Users();
 
 //                    Log.d("Current User ID","Current UserID: "+currentUserId);
