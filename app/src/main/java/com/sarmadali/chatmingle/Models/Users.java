@@ -2,11 +2,11 @@ package com.sarmadali.chatmingle.Models;
 
 public class Users {
 
-    String profilePic, userName, eMail, passWord, userId, lastMessage;
+    String profilePic, userName, eMail, passWord, userId, lastMessage, about;
 
     //constructor
     public Users(String profilePic, String userName, String eMail,
-                 String passWord, String userId, String lastMessage) {
+                 String passWord, String userId, String lastMessage, String about) {
 
         this.profilePic = profilePic;
         this.userName = userName;
@@ -14,6 +14,7 @@ public class Users {
         this.passWord = passWord;
         this.userId = userId;
         this.lastMessage = lastMessage;
+        this.about = about;
     }
 
     //empty constructor for firebase
@@ -28,6 +29,16 @@ public class Users {
 
     }
     //getter and setter
+
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
     public String getProfilePic() {
         return profilePic;
     }
