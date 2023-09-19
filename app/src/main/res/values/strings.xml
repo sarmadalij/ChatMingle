@@ -40,4 +40,17 @@
     <string name="message1">Message</string>
     <string name="_12_00_am">12:00 AM</string>
     <string name="no_message">No message</string>
+    <string name="todo23">TODO</string>
+    <string name="todo122">TODO</string>
+    <string name="todo22">TODO</string>
+    <string name="user_name2">User Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="about_me">About me</string>
+    <string name="about">About</string>
+    <string name="save">Save</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="about_us">About Us</string>
+    <string name="invite_a_friend">Invite a friend</string>
+    <string name="notification">Notification</string>
+    <string name="help">Help</string>
 </resources>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chatsfragmentBg"
+    tools:context=".SettingsActivity">
+
+    <ImageView
+        android:id="@+id/imageBackSetting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/todo23"
+        app:srcCompat="@drawable/leftchevron"
+        app:tint="@color/white"
+        tools:ignore="RtlHardcoded,ImageContrastCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBackSetting"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessLeaf">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settingProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/useravatar"
+            app:civ_border_color="@color/chatsfragmentBg"
+            app:civ_border_width="2dp"
+            tools:ignore="ImageContrastCheck,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/addUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="-27dp"
+            android:contentDescription="@string/todo22"
+            app:srcCompat="@drawable/addusers"
+            app:tint="@color/white"
+            tools:ignore="RtlHardcoded" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/user_name2"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <EditText
+                android:id="@+id/settingUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/enter_your_name"
+                android:inputType="text"
+                android:textColorHint="@color/lightgray"
+                android:textSize="16sp"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewabout"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/about"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <EditText
+                android:id="@+id/settingUserabout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/about_me"
+                android:inputType="text"
+                android:textColorHint="@color/lightgray"
+                android:textSize="16sp"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/white"
+            android:text="@string/save"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/settinglinear_bg"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="40dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/privacypolicy"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/chatsfragmentBg"
+            android:padding="10dp"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/aboutus"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/chatsfragmentBg"
+            android:padding="10dp"
+            android:text="@string/about_us"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/invitefriend"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/chatsfragmentBg"
+            android:padding="10dp"
+            android:text="@string/invite_a_friend"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/notification"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/chatsfragmentBg"
+            android:padding="10dp"
+            android:text="@string/notification"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/helpbuttonsetting"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/chatsfragmentBg"
+            android:padding="10dp"
+            android:text="@string/help"
+            android:textColor="@color/chatsfragmentBg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+
+</RelativeLayout>

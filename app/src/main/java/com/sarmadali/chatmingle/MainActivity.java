@@ -1,10 +1,5 @@
 package com.sarmadali.chatmingle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -14,6 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -104,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "This is New starredmessages", Toast.LENGTH_SHORT).show();
 
         } else if (itemId == R.id.settings) {
-            Toast.makeText(this, "This is New settings", Toast.LENGTH_SHORT).show();
 
+           Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+           startActivity(intent);
         }
         //for Sign out
         else if (itemId == R.id.logout) {
@@ -117,4 +118,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 }

@@ -55,6 +55,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         //setting data
         Picasso.get().load(usersModel.getProfilePic()).placeholder(R.drawable.useravatar)
                 .into(holder.profileImage);
+
         holder.userName.setText(usersModel.getUserName());
 
         //get last message from the user chat from database
